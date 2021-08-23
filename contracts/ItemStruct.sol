@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: Unlicense
 pragma solidity >=0.4.22 <0.9.0;
 
 /**
@@ -5,13 +6,13 @@ pragma solidity >=0.4.22 <0.9.0;
  * @dev Declares an Item struct
  */
 struct Item {
-    uint256 uid;
-    uint256 price;
-    uint256 preview_img_idx;
-    uint256 attached_media;
-    uint256 title;
-    uint256 description;
-    uint256 list_date;
+    // TODO - see if there are optimizations or potential to reduce storage
+    string title;
+    string description;
     address owner;
-    string tags;
+    uint256 price;
+    // TODO: - are IPFS hashes uint256, address or something else
+    uint256[] attached_media;
+    // uint256 creation_date;
+    bytes32[] tags;
 }
