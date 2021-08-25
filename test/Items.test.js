@@ -1,32 +1,45 @@
-const Items = artifacts.require("Items");
+const contractName = artifacts.require("Items");
 const { sampleItem, noItems } = require("./TestData.js");
 
 contract("Items", (accounts) => {
-    let itemsContract;
+    let contractInstance;
+    let result;
+    let expected;
+    const [alice, bob] = accounts;
+    const empty = (null || '' || [] || '[]');
 
     // Get the contract
     before(async () => {
-        itemsContract = await Items.deployed();
+        result = null;
+        expected = null;
+        // contractInstance = await contractName.deployed();
+
+        // Test contract without deploying
+        contractInstance = await contractName.new();
     });
 
-    // Check getItems() iff no items, iff > 0 items
     it("can fetch the list of items", async () => {
-        const items = await itemsContract.getItems();
-        assert.equal(items, [], "The items list should be empty if none have been added");
+        result = await contractInstance.getItems();
+        expected = empty;
+        assert.deepEqual(result, expected, "No items should be shown.");
     });
 
 
     describe('creating an item', async () => {
-        before("create an item using accounts[0]", async () => {
-            const i = sampleItem;
-            await itemsContract.create(_title = i.title, _description = i.description, _price = i.price, _attached_media = i.attached_media, _tag = i.tag, {
-                from: accounts[0]
-            }); // This acount should come from ganache.
-            expectedUser = accounts[0];
+        before(`create an item using alice's account (${alice})`, async () => {
+            result = await contractInstance.create(
+                sampleItem.title,
+                sampleItem.description,
+                sampleItem.price,
+                sampleItem.attached_media,
+                sampleItem.tag,
+                { from: alice }
+            ); // This acount should come from ganache.
         });
+        // expected = alice;
         // it("can fetch the items of a user by item id", async () => {
-        //     const user = await itemsContract.users(9);
-        //     assert.equal(user, expectedUser, " The owner of the item should be the first account.");
+        //     let items = await contractInstance.items(0);
+        //     assert.equal(items.owner, expectedUser, "The owner of the item should be the first account.");
         // });
     });
 });

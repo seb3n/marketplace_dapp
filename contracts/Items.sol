@@ -13,6 +13,8 @@ contract Items is Ownable {
     Item[] public items;
     address[] public user;
 
+    event NewItem(uint256 id);
+
     /**
      * @dev creates a new item
      * @param _title as defined in ItemStruct
@@ -34,6 +36,9 @@ contract Items is Ownable {
         });
 
         items.push(newItem);
+
+        // Note - assumes list doesn't get reordered...not a hardened solution
+        emit NewItem(items.length);
     }
 
     /**
@@ -56,7 +61,6 @@ contract Items is Ownable {
      * @dev gets all items
      */
     function getItems() public view returns (Item[] memory) {
-        // returns [] if empty
         return items;
     }
 }
