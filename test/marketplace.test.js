@@ -1,27 +1,26 @@
-const contractName = artifacts.require("Items");
-const { sampleItem, noItems } = require("./TestData.js");
+const contractName = artifacts.require("Marketplace");
+const { sampleItem, noItems } = require("./testData.js");
 
 contract("Items", (accounts) => {
     let contractInstance;
     let result;
     let expected;
     const [alice, bob] = accounts;
-    const empty = (null || '' || [] || '[]');
 
-    // Get the contract
+
+    // PRE-DEPLOYMENT TESTS
+
+    // POST-DEPLOYMENT TESTS
+    // contractInstance = await contractName.deployed();
+
     before(async () => {
-        result = null;
-        expected = null;
-        // contractInstance = await contractName.deployed();
-
-        // Test contract without deploying
         contractInstance = await contractName.new();
     });
 
     it("can fetch the list of items", async () => {
         result = await contractInstance.getItems();
-        expected = empty;
-        assert.deepEqual(result, expected, "No items should be shown.");
+        expect(result).to.be.empty;
+        // assert.deepEqual(result, expected, "No items should be shown.");
     });
 
 
@@ -36,10 +35,11 @@ contract("Items", (accounts) => {
                 { from: alice }
             ); // This acount should come from ganache.
         });
-        // expected = alice;
-        // it("can fetch the items of a user by item id", async () => {
-        //     let items = await contractInstance.items(0);
-        //     assert.equal(items.owner, expectedUser, "The owner of the item should be the first account.");
-        // });
+        it("can get items with one item in list", async () => {
+            result = await contractInstance.getItems();
+            expected = [newItem];
+            expect(result).to.deep.equal(expected);
+            // assert.deepEqual(result, expected, "The owner of the item should be the first account.");
+        });
     });
 });

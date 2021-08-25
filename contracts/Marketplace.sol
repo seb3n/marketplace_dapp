@@ -7,9 +7,9 @@ import "./ItemStruct.sol";
 
 /**
  * @title Items
- * @dev Implements items
+ * @dev Implements Marketplace
  */
-contract Items is Ownable {
+contract Marketplace is Ownable {
     Item[] public items;
     address[] public user;
 
@@ -19,7 +19,7 @@ contract Items is Ownable {
      * @dev creates a new item
      * @param _title as defined in ItemStruct
      */
-    function create(
+    function createItem(
         string memory _title,
         string memory _description,
         uint256 _price,
@@ -45,7 +45,7 @@ contract Items is Ownable {
      * @dev removes items owned by msg.sender
      * @param _item_id something
      */
-    function remove(uint256 _item_id) public onlyOwner {
+    function removeItem(uint256 _item_id) public onlyOwner {
         // remove items that you own
     }
 
@@ -53,7 +53,7 @@ contract Items is Ownable {
      * @dev
      * @param
      */
-    function update() public onlyOwner {
+    function updateItem() public onlyOwner {
         // update the params of the item struct
     }
 
