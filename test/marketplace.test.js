@@ -1,7 +1,7 @@
 const contractName = artifacts.require("Marketplace");
 const { sampleItem, noItems } = require("./testData.js");
 
-contract("Items", (accounts) => {
+contract(contractName.name, (accounts) => {
     let contractInstance;
     let result;
     let expected;
