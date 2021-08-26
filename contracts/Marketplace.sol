@@ -7,32 +7,6 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 import "./MarketItem.sol";
 
-/**
-FE -> list items for sale (but keep ownership in the owners name)
-marketplace methods
-- listing service (eg craigslist) - marketplace just lists items and connects buyers and sellers
-- single price marketplace (eg amazon) - marketplace lists assets and facilitates purchase without bids/auctions
-- bidding marketplace (eg ebay) - marketplace lists assets and facilitates auctions
-- market place for NFTs (eg opensea) (not physical items)
-- marketplace for exchange of goods 
-
-Developing countries need to buy/sell physical goods more than digital ones
-- but one of the problems is security/safety
-- so, what if you had a marketplace for people to sell physical things where they could each confirm the exchange
-like this
-
-1) seller list items to sell (bananas, etc) and price and location(s) of goods
-2) buyer requests purchase and puts funds in escrow
-3) seller accepts/rejects purchase request (this is them putting their goods in "escrow" / giving their guaruntee)
-4) buyer and seller chat opens and they coordinate time for exchance (if necessary) (chat is safed to ipfs)
-5) buyer and seller meet and buyer accepts or rejects the goods (rejections go to dispute mgmt)
-to accept, li takes a pic of the goods and marks accept
-to reject, li takes a pic of the goods and marks reject with reason (gets all money back except seller travel fee and they vote on what to do with the dispute fee, if different they handle it with a 3rd party)
-
-
- */
-
-
 
 /**
  * @title Items
