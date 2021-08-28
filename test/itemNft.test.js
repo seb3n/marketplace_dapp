@@ -6,7 +6,7 @@ contract(contractName.name, (accounts) => {
     let tokenID;
     let totalSupply;
     before('deploy cotract', async () => {
-        contract = await contractName.new(); //.deployed();
+        contract = await contractName.deployed();
     });
 
     describe('deployment', async () => {
@@ -21,11 +21,9 @@ contract(contractName.name, (accounts) => {
         });
         it('has a name', async () => {
             const name = await contract.name();
-            console.log(name);
             assert.equal(name, 'Our MarketPlace')
         }); it('has a symbol', async () => {
             const symbol = await contract.symbol();
-            console.log(symbol);
             assert.equal(symbol, 'OMP')
         });
     })
@@ -35,7 +33,7 @@ contract(contractName.name, (accounts) => {
         before(`Create a token using alice account: ${alice}`, async () => {
             tokenID = await contract.createToken('google.com', { from: alice });
             // totalSupply = await contract.
-            console.log(tokenID);
+            // console.log(tokenID);
             const event = tokenID.logs[0].args;
             // console.log(event);
             // console.log(event.tokenId.toNumber());
@@ -46,7 +44,7 @@ contract(contractName.name, (accounts) => {
             const to = tokenEvent.to;
             const from = tokenEvent.from;
             assert.equal(id, 1);
-            assert.equal(to, alice,'the correct address was not found');
+            assert.equal(to, alice, 'the correct address was not found');
             assert.equal(from, 0x0);
 
         });
