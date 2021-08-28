@@ -5,13 +5,12 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
-import "./ItemsManager.sol";
 
 /**
  * @title manages item as ERC721 token (NFT)
  * @dev use ERC721Storage to allow storing the IPFS URI of item NFT
  */
-contract ItemOwnership is ERC721URIStorage {
+contract ItemNFT is ERC721URIStorage {
     using Counters for Counters.Counter;
 
     Counters.Counter private _tokenIds;
