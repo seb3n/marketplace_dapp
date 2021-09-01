@@ -1,6 +1,38 @@
 {
+  "name": "marketplace_dapp",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha test/**/*.ts --require ts-node/register --timeout 15000",
+    "lint": "tslint --project . 'src/**/*.ts' --fix",
+    "build": "npm run lint && tsc",
+    "docs": "./node_modules/.bin/typedoc --exclude src/abi --excludePrivate --out ./docs ./test/**/*.ts"
+  },
+  "author": "Developers",
+  "license": "CC",
+  "homepage": "",
+  "directories": {
+    "lib": "./lib/",
+    "bin": "./bin/",
+    "doc": "./doc/",
+    "example": "./example/"
+  },
   "dependencies": {
-    "@openzeppelin/contracts": "^4.3.0",
-    "mocha": "^9.1.0"
+    "@openzeppelin/contracts": "^4.3.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.21",
+    "@types/lodash": "^4.14.172",
+    "@types/node": "^16.7.3",
+    "@types/query-string": "^6.3.0",
+    "chai": "^4.3.4",
+    "husky": "^7.0.2",
+    "mocha": "^9.1.0",
+    "mocha-typescript": "^1.0.12",
+    "ts-node": "^10.2.1",
+    "tslint": "^6.1.3",
+    "typedoc": "^0.21.6",
+    "typescript": "^4.3.5",
+    "typescript-eslint-parser": "^22.0.0",
+    "web3-typescript-typings": "^0.10.2"
   }
 }

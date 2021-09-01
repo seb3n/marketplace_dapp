@@ -7,7 +7,6 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 import "./MarketItem.sol";
 
-
 /**
  * @title Items
  * @dev Implements Marketplace
@@ -90,39 +89,4 @@ contract MarketPlace is ReentrancyGuard {
      * @dev hint
      */
     function fetchMarketItems() public view returns (MarketItem[] memory) {}
-
-    // /**
-    //  * @dev removes items owned by msg.sender
-    //  * @param _item_id something
-    //  */
-    // function removeItem(uint256 _item_id) public  {
-    //     // remove items that you own
-    // }
-
-    // /**
-    //  * @dev
-    //  * @param
-    //  */
-    // function updateItem() public  {
-    //     // update the params of the item struct
-    // }
-
-    // /**
-    //  * @dev gets all items
-    //  */
-    // function getItems() public view returns (MarketItem[] memory) {
-    //     return items;
-    // }
-    // /**
-    //  * @dev transfer ownership of Item(s)
-    //  */
-    // function transferItems() private view  returns (MarketItem[] memory) {
-    //     return items;
-    // }
-    // /**
-    //  * @dev request ownership of Items(s)
-    //  */
-    // function requestItems() public view returns (MarketItem[] memory) {
-    //     return items;
-    // }
 }
