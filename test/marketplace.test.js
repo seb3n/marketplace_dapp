@@ -18,8 +18,8 @@ contract(contractName.name, (accounts) => {
     before(async () => {
         contractInstance = await contractName.deployed();//.new();
         nftcContractInstance = await nftContract.deployed();
-        nftContractAddress = nftcContractInstance.address
-
+        // nftContractAddress = nftcContractInstance.address;
+        nftcContractInstance.createToken('google.com');
     });
 
     // it("can fetch the list of items", async () => {
@@ -40,8 +40,8 @@ contract(contractName.name, (accounts) => {
             // ); // This acount should come from ganache.
             // console.log(result);
         });
-        it("can transfer ownership to contract", async () => { 
-            console.log(nftContractAddress);
+        it("can transfer ownership to contract", async () => {
+            // console.log(nftContractAddress);
             // console.log(nftcContractInstance);
             result = await contractInstance.createMarketItem(
                 nftcContractInstance.address,

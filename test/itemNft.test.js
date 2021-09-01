@@ -34,7 +34,7 @@ contract(contractName.name, (accounts) => {
             tokenID = await contract.createToken('google.com', { from: alice });
             // totalSupply = await contract.
             // console.log(tokenID);
-            const event = tokenID.logs[0].args;
+            // const event = tokenID.logs[0].args;
             // console.log(event);
             // console.log(event.tokenId.toNumber());
         });
