@@ -8,17 +8,14 @@
     "docs": "./node_modules/.bin/typedoc --exclude src/abi --excludePrivate --out ./docs ./test/**/*.ts"
   },
   "author": "Developers",
-  "license": "CC",
+  "license": "MIT",
   "homepage": "",
   "directories": {
-    "lib": "./lib/",
-    "bin": "./bin/",
     "doc": "./doc/",
-    "example": "./example/"
+    "test": "./test/"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^4.3.0",
-    "yarn": "^1.22.11"
+    "@openzeppelin/contracts": "^4.3.1"
   },
   "devDependencies": {
     "@types/chai": "^4.2.21",
@@ -26,6 +23,7 @@
     "@types/node": "^16.7.3",
     "@types/query-string": "^6.3.0",
     "chai": "^4.3.4",
+    "eslint": "^7.32.0",
     "husky": "^7.0.2",
     "mocha": "^9.1.0",
     "mocha-typescript": "^1.0.12",
