@@ -11,10 +11,8 @@
   "license": "MIT",
   "homepage": "",
   "directories": {
-    "lib": "./lib/",
-    "bin": "./bin/",
     "doc": "./doc/",
-    "example": "./example/"
+    "test": "./test/"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.3.0"
